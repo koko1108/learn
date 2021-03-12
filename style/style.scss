@@ -1,0 +1,305 @@
+$color:#E0A30A;
+$colorlight:#FAE09E;
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;  //可以讓邊線不佔據空間
+    font-family: 'Noto Sans TC', sans-serif;
+    // border: 1px #333 solid;
+
+    // scrollbar設定
+    ::-webkit-scrollbar{
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track{
+        background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-thumb{
+        background: $color;
+    }
+
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: normal;
+}
+
+header{
+    display: flex;  
+    align-items: center; //align-items：交錯軸線的對齊
+    flex-wrap: wrap;  //flex-wrap：決定換行的屬性
+
+    // Sticky Header-鎖定標題列
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background-color: white;
+    box-shadow: 3px 3px 5px 0.5px #757474;
+
+    div.logo{
+        display: flex;
+        align-items: center;  
+        flex: 5 1 400px;  
+        margin-left: 2rem;
+        
+        img{
+            width: 5vw;
+            height: 5vw;
+        }
+    }
+
+    nav{
+        flex: 2 1 400px;
+
+        ul{
+            display: flex;
+            list-style-type: none;
+            justify-content: space-around; //justify-content：主要軸線的對齊 //space-around平均分配空白於四周
+
+            li{
+                a{
+                    color:$color;
+                    text-decoration: none;
+                    font-size: 1.25rem; //rem表示每個元素透過「倍數」乘以根元素的 px 值
+                    
+                    &:hover{
+                    color:$colorlight;
+                    }
+                } 
+            }
+            
+        }
+    }
+}
+
+main{
+    section.backImage{
+        min-height: 90vh;
+        width: 100%;
+        background-image: url("../pictures/book_4.jpg");
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        z-index: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
+        div.filter{
+            background-color: rgba(0,0,0,0.2);
+            width: 100%;
+            min-height: 90vh;
+            position: absolute;
+            top: 0;
+            z-index: -1;
+        }
+
+        h3{
+            font-size: 3.5rem;
+            color: white;
+        }
+        h5{
+            font-size: 2.5rem;
+            color: white;
+            margin: 2rem 0rem;
+        }
+
+        button.start{
+            background-color: $color;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.5rem;
+            color: white;
+            border: none;
+            border-radius: 1rem;
+            cursor: pointer;
+            outline:none; //點選按鈕的時候就不會有邊框
+
+            &:hover{
+                background-color: $colorlight;
+                color:$color;
+            }
+        }
+    }
+
+    section.second{
+        // min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        h2{
+            font-size: 2rem;
+            margin: 2rem 0rem;
+        }
+
+        section.cards{
+            display: flex;
+            // border: 2px solid red;
+            width: 80%;
+            min-height: 80vh;
+            flex-wrap: wrap;
+        }
+
+        div.card{
+            // border: 2px solid blue;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            padding: 1rem;
+            flex: 1 1 300px;
+
+            div.image-container{
+                overflow: hidden;
+                width: 15vw;
+                height: 15vw;
+                border-radius: 50%;
+                img{
+
+                    width: 15vw;
+                    height: 15vw;
+                    border-radius: 50%;
+                    transition: all 0.2s;
+
+                    &:hover{
+                        transform: scale(1.2);
+                    }
+                }
+            }
+            
+            
+
+            
+
+            h4{
+                margin: 1rem 0rem;
+                font-size: 2rem;
+            }
+
+            p{
+                font-size: 1.25rem;
+            }
+
+            a{
+                margin: 1rem 0rem;
+                text-decoration: none;
+                padding: 0.5rem 1.5rem;
+                border-radius: 10px;
+                background-color:$color;
+                color:white;
+                font-size: 1.25rem;
+            }
+        }
+    }
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 40vh;
+    justify-content: space-around;
+    background-color: rgb(223, 221, 221);
+
+    div.logo{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        img{
+            width: 6vw;
+            height: 6vw;
+        }
+    }
+
+    nav{
+        width: 50%;
+        h4{
+            margin: 1rem 0rem;
+            font-size: 1.25rem; 
+            color: rgb(88, 88, 88); 
+        }
+        ul{
+            display: flex;
+            list-style-type: none;
+            width: 100%;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+            li{
+                flex-basis: 100px;
+                a{
+                    color: white;
+                    font-weight: 600;
+                    text-decoration: none;
+                    font-size: 1rem;
+                    &:hover{
+                        color:rgb(158, 158, 158);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Logo 圖檔響應式設計CSS
+@media screen and (max-width: 550px){
+    header {
+        div.logo{
+            justify-content: center;           
+
+            img{
+                margin-right:0.5rem;
+                width: 30px;
+                height: 30px;
+            }
+        }
+    }
+
+    footer{
+        div.logo{
+            img{
+                width: 15vw;
+                height: 15vw;
+            }
+        }
+        section.links{
+            margin-top: 1rem;
+            a{
+                img{
+                    width: 10vw;
+                    height: 10vw;
+                }
+            }
+        }
+
+
+    }
+}
+
+// section圖檔響應式設計CSS
+
+@media screen and (max-width: 700px){
+    main{
+        section.second{
+            section.cards{
+                div.card{
+                    div.image-container{
+                        width: 40vw;
+                        height: 40vw;
+                        img{
+                            width: 40vw;
+                            height: 40vw;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
